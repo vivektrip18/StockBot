@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Check if a word is fully uppercase and try to resolve it to a valid stock ticker
-def resolve_ticker(word: str) -> str | None:
+def resolve_ticker(word: str):
     if not word.isupper():
         return None
 
@@ -28,7 +28,7 @@ def resolve_ticker(word: str) -> str | None:
             continue
     return None
 
-def generate_trading_suggestion(ticker: str) -> str:
+def generate_trading_suggestion(ticker: str):
     try:
         stock = yf.Ticker(ticker)
         hist = stock.history(period="60d")
@@ -81,7 +81,7 @@ def generate_trading_suggestion(ticker: str) -> str:
 
 
 # Fetch stock data
-def fetch_stock_info(ticker: str) -> str:
+def fetch_stock_info(ticker: str):
     try:
         stock = yf.Ticker(ticker)
         hist = stock.history(period="5d")
