@@ -134,7 +134,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Start the bot
 if __name__ == "__main__":
-    TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")  
+    TOKEN = "7658738085:AAE-B0sSQpxJ1LYtyjjlrqwSdyvOO1ewJZY" 
 
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
