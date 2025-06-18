@@ -4,6 +4,8 @@ import yfinance as yf
 from telegram import Update
 import os
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters
+from dotenv import load_dotenv
+load_dotenv()
 
 # Logging
 logging.basicConfig(level=logging.INFO)
@@ -134,7 +136,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # Start the bot
 if __name__ == "__main__":
-    TOKEN = "7658738085:AAE-B0sSQpxJ1LYtyjjlrqwSdyvOO1ewJZY" 
+    TOKEN = os.getenv("TELEGRAM_TOKEN")
 
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
